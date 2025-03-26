@@ -18,7 +18,7 @@
 <div>
 <ul>
 <li>이메일 찾기</li>
-<li>비밀번호 찾기</li>
+<li><a href="passwd_search.jsp">비밀번호 찾기</a></li>
 </ul>
 </div>
 <div class="text1">
