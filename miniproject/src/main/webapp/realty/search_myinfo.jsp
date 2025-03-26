@@ -34,7 +34,7 @@
 <script>
 function goToLogin() {
 	alert("로그인 페이지로 이동 합니다.");
-    location.href = "/realty/login.do"; // 로그인 페이지 URL로 변경
+    location.href = "/realty/login.jsp"; // 로그인 페이지 URL로 변경
 }
 </script>
 </html>
