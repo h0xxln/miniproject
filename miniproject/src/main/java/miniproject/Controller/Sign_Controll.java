@@ -27,7 +27,7 @@ public class Sign_Controll extends Md5_Model{
 
 	@Resource(name = "Sign_DAO")
 	private Sign_DAO signDAO;
-    //이메일 찾기
+	//이메일 찾기
 	@PostMapping("/realty/search_email.do")
 	public String search_email(Model email_msg, Sign_DTO dto){
 		
