@@ -2,19 +2,19 @@ package miniproject.Controller;
 
 import java.io.PrintWriter;
 import java.util.List;
-import java.util.Set;
+
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import Model.Md5_Model;
 import miniproject.DAO.Sign_DAO;
@@ -27,6 +27,40 @@ public class Sign_Controll extends Md5_Model{
 
 	@Resource(name = "Sign_DAO")
 	private Sign_DAO signDAO;
+	
+	
+	//비밀번호 찾기
+	@PostMapping("/realty/search_pass.do")
+	public String search_pass(Sign_DTO dto ,HttpServletResponse res) {
+		res.setContentType("text/html; charset=UTF-8");
+
+		try {
+			this.pw = res.getWriter();
+	        int result = this.signDAO.search_pass(dto.getM_email(), dto.getM_number());
+	        System.out.println(result);
+	        if (result > 0) {
+	            this.pw.print("<script>"
+	                    + "if (confirm('입력하신 정보와 일치하는 계정이 있습니다. 비밀번호를 변경하시겠습니까?')) {"
+	                    + "    location.href='/realty/search_mypass.jsp';"
+	                    + "} else {"
+	                    + "    history.go(-1);"
+	                    + "}"
+	                    + "</script>");
+	        } else {
+	            this.pw.print("<script>"
+	                    + "alert('입력하신 정보와 일치하는 계정이 없습니다.');"
+	                    + "history.go(-1);"
+	                    + "</script>");
+	        }
+
+	    } catch (Exception e) {
+	        System.out.println("비밀번호 찾기 오류 발생: " + e);
+	    }
+		
+		return null;
+	}
+	
+	
 	//이메일 찾기
 	@PostMapping("/realty/search_email.do")
 	public String search_email(Model email_msg, Sign_DTO dto){
@@ -139,7 +173,7 @@ public class Sign_Controll extends Md5_Model{
 							+ "history.go(-1);"
 							+ "</script>");
 				this.pw.flush();
-				return "/realty/login"; // 로그인 실패 -> 로그인 페이지로 다시 이동A
+				return "/realty/login"; // 로그인 실패 -> 로그인 페이지로 다시 이동
 			}
 		} 
 		catch (Exception e) {

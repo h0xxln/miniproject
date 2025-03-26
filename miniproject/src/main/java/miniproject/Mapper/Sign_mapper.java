@@ -13,6 +13,7 @@ public interface Sign_mapper {
 	List<Sign_DTO> login_select(Sign_DTO dto); //로그인 
 	public int delete_member(Sign_DTO dto); //회원 삭제
 	public int signup_insert(Sign_DTO dto);	//회원 가입 
-	Sign_DTO search_email(String m_name, String m_number);
-	public int check_email(String m_email);
+	Sign_DTO search_email(String m_name, String m_number); //이메일 찾기
+	public int check_email(String m_email);// 이메일 중복체크
+	public int search_pass(String m_email, String m_number); //패스워드 찾기/변경
 }
