@@ -8,8 +8,8 @@
 		<div><input type="password" name="m_pass" placeholder="비밀번호" ></div>
 		<div><input type="button" value="로그인" onclick="logincheck()"></div>
 		<div>
-			<span>이메일 찾기</span>
-			<span>비밀번호 찾기</span>
+			<span><a href="email_search.jsp">이메일 찾기</a></span>
+			<span><a href="passwd_search.jsp">비밀번호 찾기</a></span>
 		</div>
 	</aside>
 		</form>
