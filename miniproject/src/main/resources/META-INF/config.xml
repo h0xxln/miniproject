@@ -7,7 +7,7 @@
 <settings>
 <setting name="cacheEnabled" value="false"/> <!-- Mybatis 실행시 cache를 활용하는 기능 종료 -->
 <setting name="useGeneratedKeys" value="true"/> <!-- auto_increment에 대한 생성 값을 가져옴 -->
-<setting name="defaultExecutorType" value="BATCH"/> <!-- properties를 기본설정 + REUSE(PreparedStatement) -->
+<setting name="defaultExecutorType" value="REUSE"/> <!-- properties를 기본설정 + REUSE(PreparedStatement) -->
 <setting name="jdbcTypeForNull" value="NULL"/>	<!-- NULL : NULL값이 있을 경우 에러가 발생되는 상황일 경우 확인  -->
 <setting name="logImpl" value="org.apache.ibatis.logging.stdout.StdOutImpl"/> <!-- Log interface를 기본으로 모든 클래스에 자동 장착 -->
 </settings>
@@ -18,6 +18,5 @@
 	<typeAlias alias="mddto" type="miniproject.DTO.Md_choiceDTO"/>
 	<typeAlias alias="signdto" type="miniproject.DTO.Sign_DTO"/>
 	<typeAlias alias="weakdto" type="miniproject.DTO.Weak_infoDTO"/>
-
 </typeAliases>
 </configuration>
