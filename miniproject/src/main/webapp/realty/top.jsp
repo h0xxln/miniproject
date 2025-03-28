@@ -3,8 +3,6 @@
 <header>
 	<div class="top_banner"></div>
 </header>
-<!--최상단끝-->
-<!--메뉴-->
 <nav>
 	<div class="menus">
 		<ul class="menus_ul">
@@ -12,19 +10,13 @@
 			<li>일반매물</li>
 			<li>추천매물</li>
 			<li>중계의뢰</li>
-			<li>상담신청</li>
+			<li><a href="./counsel.jsp">상담신청</a></li>
 			<li>업체의뢰</li>
 			<li>의뢰현황</li>
-
 			<li class="logins">
-				<!-- 홍길동님 환영합니다.[로그아웃] --> <a href="./login.jsp" title="로그인"> <img
-					src="./ico/login.svg" alt="로그인">
-			</a> <a href="./member_join.jsp" title="회원가입"> <img
-					src="./ico/membership.svg" alt="회원가입">
-			</a>
+			<a href="./login.jsp" title="로그인"> <img src="./ico/login.svg" alt="로그인"></a> 
+			<a href="./member_join.jsp" title="회원가입"><img src="./ico/membership.svg" alt="회원가입"></a>
 			</li>
-
 		</ul>
 	</div>
 </nav>
-<!--메뉴끝-->
