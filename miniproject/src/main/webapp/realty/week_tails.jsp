@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="cr" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,20 +19,22 @@
 		<div id="weektails">
 			<p>LH센트럴힐(공공임대)</p>  
             <ul>
+                <cr:forEach var="weekList" items="${week_tailsList}">
                 <li>종류</li>
-                <li>아파트 | 공공임대 </li>
+                <li>${weekList.t_type} | ${weekList.t_rentype}</li>
                 <li>주소</li>
-				<li>서울시 송파구 문정동 12-2</li>
+				<li>${weekList.t_adress}</li>
                 <li>규모</li>
-				<li>총 104세대 | 총 2개동</li>
+				<li>총 ${weekList.t_unit}세대 | 총 ${weekList.t_hstr}개동</li>
                 <li>시기</li>
-				<li>2025.04 분양 | 2027.02 입주</li>
+				<li>${weekList.t_saledate} 분양 | ${weekList.t_indate} 입주</li>
                 <li>난방구조</li>
-				<li>개별난방,도시가스</li>
+				<li>${weekList.t_hs}</li>
                 <li>건설사</li>
-				<li>GS건설㈜</li>
+				<li>${weekList.t_ctrcomp}</li>
                 <li>사진정보</li>
-				<li><img src="./room/room1.jpg"></li>
+				<li><img src="./room/${weekList.t_img}"></li>
+				</cr:forEach>
             </ul>
 		</div>
         <div><button class="btn_css">방문예약</button></div>
