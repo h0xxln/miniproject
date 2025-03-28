@@ -4,8 +4,6 @@ import java.util.List;
 
 
 import miniproject.DTO.Md_choiceDTO;
-import miniproject.DTO.Sign_DTO;
-import miniproject.DTO.Web_infoDTO;
 
 //카피라이터
 //함수는 동사로 시작
