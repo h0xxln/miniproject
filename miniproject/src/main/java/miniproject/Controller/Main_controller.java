@@ -42,20 +42,30 @@ public class Main_controller {
 	private Md_choiceDAO mddao;
 
 	@GetMapping("/realty/index.do")	//금주 분양 정보, 푸터, 추천 분양정보 출력
-	public String index(Md_choiceDTO mddto, Web_infoDTO webdto, Weak_infoDTO weakdto,
-			Model web_infoModel, Model md_choiceModel, Model weak_infoModel, HttpSession session) {		
+	public String index(Model web_infoModel, Model md_choiceModel, Model weak_infoModel, HttpSession session) {		
 	
-	List<Weak_infoDTO> weak_infoList = this.weakdao.weakInfo_select(weakdto);	//금주분양
-	List<Web_infoDTO> web_infoList = this.webdao.webInfo_select(webdto);	//카피라이터
-	session.setAttribute("web_infoList", web_infoList);	//카피라이터 session으로 데이터 유지
-	List<Md_choiceDTO> md_choiceList = this.mddao.mdchoice_select(mddto);	//추천분양정보
-	
+	List<Weak_infoDTO> weak_infoList = this.weakdao.weakInfo_select();	//금주분양
 	weak_infoModel.addAttribute("weak_infoList",weak_infoList);		//금주분양 정보 값 배열로 전달
-	web_infoModel.addAttribute("web_infoList",web_infoList);		//카피라이터 정보 배열로 전달
-	md_choiceModel.addAttribute("md_choiceList",md_choiceList);		//추천 분양 정보 배열로 전달
-		return null;
 	
+	List<Web_infoDTO> web_infoList = this.webdao.webInfo_select();	//카피라이터
+	web_infoModel.addAttribute("web_infoList",web_infoList);		//카피라이터 정보 배열로 전달
+	session.setAttribute("web_infoList", web_infoList);	//카피라이터 session으로 데이터 유지
+	
+	List<Md_choiceDTO> md_choiceList = this.mddao.mdchoice_select();	//추천분양정보
+	md_choiceModel.addAttribute("md_choiceList",md_choiceList);		//추천 분양 정보 배열로 전달
+
+	return null;
 	}
 	
+	@GetMapping("/realty/week_tails.do")
+	public String week_tails(@RequestParam("t_name") String t_name, Model weak_tailsModel) {
+		
+		List<Weak_infoDTO> week_tailsList = this.weakdao.weekTails_select(t_name);
+		weak_tailsModel.addAttribute("week_tailsList",week_tailsList);
+		//System.out.println(week_tailsList.get(0).getT_adress());
+		//System.out.println(week_tailsList.get(0).getT_ctrcomp());
+		
+		return null;
+	}
 	
 }
