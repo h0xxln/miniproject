@@ -11,6 +11,6 @@ import miniproject.DTO.Web_infoDTO;
 //함수는 동사로 시작
 public interface Web_info_mapper { 
 
-	public List<Web_infoDTO> webInfo_select(Web_infoDTO webdto);
+	public List<Web_infoDTO> webInfo_select();
 	
 }

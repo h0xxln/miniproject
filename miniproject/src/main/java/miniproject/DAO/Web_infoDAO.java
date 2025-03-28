@@ -17,8 +17,8 @@ public class Web_infoDAO implements Web_info_mapper{
 	public SqlSessionTemplate webinfo_st;
 	
 	@Override
-	public List<Web_infoDTO> webInfo_select(Web_infoDTO webdto) {
-		List<Web_infoDTO> web_infoList = this.webinfo_st.selectList("webInfo_select",webdto);
+	public List<Web_infoDTO> webInfo_select() {
+		List<Web_infoDTO> web_infoList = this.webinfo_st.selectList("webInfo_select");
 		return web_infoList;
 	}
 	
