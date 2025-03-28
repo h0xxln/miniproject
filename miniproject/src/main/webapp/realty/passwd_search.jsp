@@ -7,6 +7,7 @@
 <title>비밀번호 찾기</title>
 <link rel="stylesheet" type="text/css" href="./css/index.css?v=1">
 <link rel="stylesheet" type="text/css" href="./css/passwd_search.css?v=2">
+<script src="./js/jquery.js?v=3"></script>
 </head>
 <body>
 <!--top.jsp-->
@@ -14,7 +15,7 @@
  
 <!-- 이메일 찾기, 비밀번호 -->
 <main>
-<form id="frm" action="search_pass.do" method="post">
+<form id="frm">
 <section class="sub">
 <div>
 <ul>
