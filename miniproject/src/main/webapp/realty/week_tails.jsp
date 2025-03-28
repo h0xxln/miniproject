@@ -16,7 +16,7 @@
 	<div class="weektails">
 		<p>분양정보</p>
 		<div id="weektails">
-			<p>LH센트럴힐(공공임대)</p>
+			<p>LH센트럴힐(공공임대)</p>  
             <ul>
                 <li>종류</li>
                 <li>아파트 | 공공임대 </li>
