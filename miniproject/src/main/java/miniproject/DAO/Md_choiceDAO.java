@@ -16,7 +16,7 @@ public class Md_choiceDAO implements Md_choice_mapper {
 	public SqlSessionTemplate md_st;
 	
 	@Override
-	public List<Md_choiceDTO> mdchoice_select(Md_choiceDTO mddto) {
+	public List<Md_choiceDTO> mdchoice_select() {
 		List<Md_choiceDTO> md_choiceList = this.md_st.selectList("mdchoice_select");
 		
 		return md_choiceList;
