@@ -3,12 +3,9 @@ package miniproject.DAO;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.Resource;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
-
 import miniproject.DTO.Sign_DTO;
 import miniproject.Mapper.Sign_mapper;
 
@@ -58,17 +55,26 @@ public class Sign_DAO  implements Sign_mapper{
 	}
 	
 	@Override
-	public int search_pass(String m_email, String m_number) {	//비밀번호 찾기
+	public String search_pass(String m_email, String m_number) {	//비밀번호 찾기
 		Map<String, String> searchPass = new HashMap<String, String>();
 		searchPass.put("m_email", m_email);
 		searchPass.put("m_number", m_number);
 		
-		int result = this.sign_st.selectOne("search_pass",searchPass);
+		String result = this.sign_st.selectOne("search_pass",searchPass);
 		//System.out.println(result);
 		return result;
 	}
 	
-	
+
+	@Override
+	public Integer update_pass(String m_email, String m_pass) {		//비밀번호 변경
+		Map<String, String> updatePass = new HashMap<String, String>();
+		updatePass.put("m_email", m_email);
+		updatePass.put("m_pass", m_pass);
+		Integer result = this.sign_st.update("update_pass",updatePass);
+		System.out.println("dao"+result);
+		return result;
+	}
 	
 	
 }
