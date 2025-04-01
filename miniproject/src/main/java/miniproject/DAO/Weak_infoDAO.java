@@ -23,9 +23,9 @@ public class Weak_infoDAO implements Weak_info_mapper{
 		return weak_infoList;
 	}
 
-	public List<Weak_infoDTO> weekTails_select(String t_name) {
+	public List<Weak_infoDTO> weekTails_select(String tidx) {
 
-		List<Weak_infoDTO> week_tailsList = this.weak_st.selectList("weekTails_select",t_name);
+		List<Weak_infoDTO> week_tailsList = this.weak_st.selectList("weekTails_select",tidx);
 		return week_tailsList;
 	}
 }
