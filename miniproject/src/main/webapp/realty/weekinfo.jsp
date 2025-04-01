@@ -6,7 +6,7 @@
     <div class="week_estates">
       <ul>
         <cr:forEach var="weakList" items="${weak_infoList}">
-          <li class="estate-item" data-id="${weakList.t_name}">
+          <li class="estate-item" data-id="${weakList.tidx}">
             <span>매매</span>
             <div>${weakList.t_name}</div>
             <aside>${weakList.t_adress}</aside>
