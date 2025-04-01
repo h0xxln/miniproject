@@ -12,5 +12,5 @@ import miniproject.DTO.Weak_infoDTO;
 public interface Weak_info_mapper { 
 
 	public List<Weak_infoDTO> weakInfo_select();
-	public List<Weak_infoDTO> weekTails_select(String t_name) ;
+	public List<Weak_infoDTO> weekTails_select(String tidx) ;
 }
