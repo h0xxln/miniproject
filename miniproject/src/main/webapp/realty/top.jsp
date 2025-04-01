@@ -6,7 +6,7 @@
 <nav>
 	<div class="menus">
 		<ul class="menus_ul">
-			<li><img src="./logo/e_click_logo.png"></li>
+			<li><img src="./logo/e_click_logo.png" onclick="goindex()"></li>
 			<li>일반매물</li>
 			<li>추천매물</li>
 			<li>중계의뢰</li>
@@ -20,3 +20,4 @@
 		</ul>
 	</div>
 </nav>
+<script src="./js/top.js?v=1"></script>
