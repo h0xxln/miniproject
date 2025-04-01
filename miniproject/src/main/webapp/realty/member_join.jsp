@@ -16,6 +16,7 @@
 </style>
 <title>회원가입</title>
 <script src="./js/jquery.js?v=3"></script>
+<script src="./js/agree.js?v=1"></script>
 </head>
 <body>
 	<!-- top.jsp -->
