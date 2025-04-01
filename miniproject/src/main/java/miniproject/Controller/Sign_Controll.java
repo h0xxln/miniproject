@@ -147,12 +147,12 @@ public class Sign_Controll extends Md5_Model {
     @PostMapping("/realty/loginok.do")
     public String loginok(Sign_DTO dto, HttpServletResponse res, HttpSession session, HttpServletRequest rq) {
         res.setContentType("text/html; charset=UTF-8");
+        
         try {
-        	 session = rq.getSession();
+        	session = rq.getSession();
             this.md5_mpass = this.md5(dto.getM_pass()); // 패스워드 암호화
             dto.setM_pass(md5_mpass); // 암호화된 패스워드로 DTO 설정
             List<Sign_DTO> loginList = this.signDAO.login_select(dto);
-            System.out.println("loginList: " + loginList);
             session.setAttribute("login", loginList);
             
             this.pw = res.getWriter();
