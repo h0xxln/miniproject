@@ -8,7 +8,7 @@
 		<ul class="menus_ul">
 			<li><img src="./logo/e_click_logo.png" onclick="goindex()"></li>
 			<li>일반매물</li>
-			<li>추천매물</li>
+			<li><a href="./md_board.do">추천매물</a></li>
 			<li>중계의뢰</li>
 			<li><a href="./counsel.jsp">상담신청</a></li>
 			<li>업체의뢰</li>
