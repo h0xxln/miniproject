@@ -26,6 +26,7 @@ import miniproject.DAO.Md_choiceDAO;
 import miniproject.DAO.Reservation_DAO;
 import miniproject.DAO.Weak_infoDAO;
 import miniproject.DAO.Web_infoDAO;
+import miniproject.DTO.Md_boardDTO;
 import miniproject.DTO.Md_choiceDTO;
 import miniproject.DTO.ReservationDTO;
 import miniproject.DTO.Sign_DTO;
@@ -67,6 +68,7 @@ public class Main_controller {
 	return null;
 	}
 	
+	//금주 분양 정보 상세(+ 방문예약)
 	@GetMapping("/realty/week_tails.do")
 	public String week_tails(@RequestParam("tidx") String tidx,
 			@SessionAttribute(name="login" , required = false)  List<Sign_DTO> login,
@@ -78,8 +80,6 @@ public class Main_controller {
 		List<Weak_infoDTO> week_tailsList = this.weakdao.weekTails_select(tidx);
 		weak_tailsModel.addAttribute("week_tailsList",week_tailsList);
 		session.setAttribute("week_session", week_tailsList);
-		
-		String n = "nologin"; // 로그인 정보 없음 
 		
 		if (login == null || login.isEmpty()) {
 			return null;	//로그인 안되면 바로 리턴함
