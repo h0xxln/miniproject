@@ -17,8 +17,8 @@
 <section class="sub">
 <div>
 <ul>
-<li><a href="email_search.jsp">이메일 찾기</a></li>
-<li><a href="passwd_search.jsp">비밀번호 찾기</a></li>
+<li><a href="email_search.do">이메일 찾기</a></li>
+<li><a href="passwd_search.do">비밀번호 찾기</a></li>
 </ul>
 </div>
 <div class="text1">
