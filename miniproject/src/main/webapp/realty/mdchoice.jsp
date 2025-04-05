@@ -3,7 +3,7 @@
 <%@taglib prefix="cr" uri="http://java.sun.com/jsp/jstl/core" %>    
   <section>
     <div class="recommend">
-      <p>추천분양정보<br><em>실시간 추천 분양정보를 한곳에!</em></p>
+      <p><a href="./md_board.do">추천분양정보</a><br><em>실시간 추천 분양정보를 한곳에!</em></p>
       <div class="md_estates">
         <ul>
         <cr:forEach var="mdList" items="${md_choiceList}">
