@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -24,7 +25,13 @@ public class Counsel_Controller {
 	@Resource(name="Counsel_DAO")
 	private Counsel_DAO cdao;
 
-	 
+	//counsel.do 접속시 counsel.jsp 맵핑
+	@GetMapping("/realty/counsel.do")
+	public String counsel() {
+		
+		return null;
+	}
+	
 	@PostMapping("/realty/apply_counsel.do")
 	public String apply_counsel(
 		HttpServletResponse res,
