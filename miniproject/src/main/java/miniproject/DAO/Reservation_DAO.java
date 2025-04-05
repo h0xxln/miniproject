@@ -1,5 +1,6 @@
 package miniproject.DAO;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,24 @@ public class Reservation_DAO implements Reservation_mapper {
 	@Resource(name="template")
 	public SqlSessionTemplate reserv_st;
 
+	
+	//방문예약 취소
+	@Override
+	public int cancel_reslist(ReservationDTO resdto) {
+		int cancel_result = this.reserv_st.delete("cancel_reslist",resdto);
+		
+		return cancel_result;
+	}
+	
+	
+	@Override	//reservation_list(방문예약) 출력
+		public List<ReservationDTO> selet_resAll(Map<String, String> login_info) {
+		List<ReservationDTO> all_resList = this.reserv_st.selectList("selet_resAll",login_info);
+		return all_resList;
+		}	
+	
+	
+	//방문 예약 등록 페이지
 	@Override
 	public int apply_reservation(ReservationDTO resdto) {
 		
@@ -25,6 +44,8 @@ public class Reservation_DAO implements Reservation_mapper {
 				
 		return result;
 	}
+	
+	//weektails 접속시 예약여부 확인
 	@Override
 	public List<ReservationDTO> check_visit(Map<Object, Object> check_visit) {	//인덱스에서 weektails 접속시 예약여부 확인
 
@@ -32,6 +53,7 @@ public class Reservation_DAO implements Reservation_mapper {
 		return check_result;
 	}
 	
+	//방문 예약 정보 확인
 	@Override
 	public List<ReservationDTO> select_result(Map<Object, Object> tidxAndwv_name) {
 		
