@@ -3,7 +3,7 @@ function goindex() {
 }
 
 function reserve_page() {
-
+	location.href = "./reservation_list.do";
 }
 function myinfo_menu(part) {
 	var log_menu = document.getElementById("login_info");
