@@ -32,6 +32,16 @@ public class Md_boardDAO implements Md_board_mapper {
 		return mdboard_result;
 	}
 	
+	
+	//추천분양 정보 게시판 작성
+	@Override
+	public int Insert_mdwrite(Md_boardDTO mdbw_dto) {
+		
+		int mdwrite_result = this.mdb_st.insert("Insert_mdwrite",mdbw_dto);
+		
+		return mdwrite_result;
+	}
+	
 	//검색된 게시물 총 갯수
 	@Override
 	public int searchTotal(String m_search) {

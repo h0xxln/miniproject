@@ -25,4 +25,8 @@ public interface Md_board_mapper {
 	
 	//검색 게시물 총 갯수
     public int searchTotal(String m_search);
+
+    public int Insert_mdwrite(Md_boardDTO mdbw_dto);
+
+
 }
