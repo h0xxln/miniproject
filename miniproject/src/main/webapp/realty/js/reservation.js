@@ -4,6 +4,16 @@ $(() => {
     $(".sel_input").attr("min", today);
 }); 
 
+function cancel_reslist(){
+	const isDelete = confirm("정말로 예약을 취소하시겠습니까?");
+    if (isDelete) {
+        alert("삭제 요청을 보냅니다.");
+        frm.submit();
+    } else {
+        alert("취소되었습니다.");
+    }
+};
+
 
 function apply_reservation(){
 	let form = $("#frm");
