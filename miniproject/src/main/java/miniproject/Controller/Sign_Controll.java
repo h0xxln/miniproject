@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import Model.Md5_Model;
 import miniproject.DAO.Sign_DAO;
 import miniproject.DTO.Sign_DTO;
@@ -23,6 +25,41 @@ public class Sign_Controll extends Md5_Model {
     @Resource(name = "Sign_DAO")
     private Sign_DAO signDAO;
 
+
+    
+    
+    //login.do 접속시 login.jsp 출력
+    @GetMapping("/realty/login.do")
+    public String login() {
+    	
+    	return null;
+    }
+    
+    // 비밀번호 변경 페이지 출력
+    @GetMapping("/realty/passwd_search.do")
+    public String search_mypass(Sign_DTO dto) {
+    	return null;
+    }
+    
+    //member_join.do => member_join.jsp로 맵핑
+    @GetMapping("/realty/member_join.do")
+    public String member_join() {
+    	
+    	return null;
+    }
+    	
+    //member_join.do => member_join.jsp로 맵핑
+    @GetMapping("/realty/email_search.do")
+    public String  email_search() {
+        	
+        return null;
+    }   
+        	
+    	
+    	
+    	
+    
+    
     // 비밀번호 변경 쿼리 수행
     @PostMapping("/realty/update_pass.do")
     public String update_pass(
@@ -49,11 +86,6 @@ public class Sign_Controll extends Md5_Model {
         return null;
     }
 
-    // 비밀번호 변경 페이지 출력
-    @GetMapping("/realty/search_mypass.do")
-    public String search_mypass(Sign_DTO dto) {
-        return "/realty/search_mypass";
-    }
 
     // 비밀번호 찾기
     @PostMapping("/realty/search_pass.do")
@@ -91,8 +123,9 @@ public class Sign_Controll extends Md5_Model {
                 msg = "ok";
             }
             this.pw.print(msg);
-        } catch (Exception e) {
-            System.out.println(e);
+            
+        }catch (Exception e) {
+            System.out.println("이메일 중복체크 오류 : " + e);
         } finally {
                 this.pw.close(); // 스트림 닫기
         }
@@ -142,7 +175,8 @@ public class Sign_Controll extends Md5_Model {
         }
         return null;
     }
-
+    
+    
     // 회원 로그인
     @PostMapping("/realty/loginok.do")
     public String loginok(Sign_DTO dto, HttpServletResponse res, HttpSession session, HttpServletRequest rq) {
@@ -179,9 +213,12 @@ public class Sign_Controll extends Md5_Model {
         return null;
     }
 
+    
+    
     // 회원가입
     @PostMapping("/realty/member_joinok.do")
-    public String member_joinok(Sign_DTO dto, HttpServletResponse res) {
+    public String member_joinok(Sign_DTO dto, HttpServletResponse res,
+    		RedirectAttributes redirectAttributes) {
         res.setContentType("text/html; charset=UTF-8");
         try {
         	this.pw = res.getWriter();
@@ -203,11 +240,27 @@ public class Sign_Controll extends Md5_Model {
                         + "history.go(-1);"
                         + "</script>");
             }
-        } catch (Exception e) {
-            System.out.println(e);
-        } finally {
-           this.pw.close();
             
+        }//만약 같은 전화번호가 데이터베이스에 있을 경우 경고문 출력 후 다시 회원가입 페이지로 이동 됨.
+        catch (org.springframework.dao.DuplicateKeyException numberEx) {
+			System.out.println("회원가입시 전화번호 중복 오류 : " +numberEx);
+			 this.pw.println("<script>"
+                     + "alert('이미 해당 전화번호를 사용하는 계정이 있습니다.');"
+                     + "location.href='/realty/member_join.do';"
+                     + "</script>");
+		}
+        catch (Exception e) {
+        	this.pw.println("<script>"
+                    + "alert('정상적으로 계정이 생성 되었습니다.');"
+                    + "location.href='/realty/index.do';"
+                    + "</script>");
+        	System.out.println(e);
+        	
+        } 
+        finally {
+        	if (this.pw != null) {
+                this.pw.close();
+            }
         }
         return "/realty/login";
     }
