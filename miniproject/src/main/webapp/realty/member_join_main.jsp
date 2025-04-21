@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="cr" uri="http://java.sun.com/jsp/jstl/core"%>
 <form id="f" method="post" action="member_joinok.do">
     <p>이메일로 회원가입</p>
     <div>
+    	<input type="hidden" name="code" value="1">
+    	<input type="hidden" name="kakao_id" value="">
+    	<input type="hidden" name="kakao_nicknm" value="">
         <a>이메일</a> 
         <input type="text" id="m_emailCheck"  name="m_email" placeholder=" 이메일 주소를 입력해주세요." autocomplete="none" style="width:400px; float:left;"> 
         <input type="button" value="중복체크" class="mail_btn" onclick="checkEmail()">
